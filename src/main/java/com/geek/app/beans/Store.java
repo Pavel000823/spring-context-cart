@@ -25,7 +25,6 @@ public class Store {
         this.actions = actions;
     }
 
-    @Autowired
     public void bay() {
         productRepository.info();
         actions.printActions();
@@ -97,13 +96,13 @@ public class Store {
                     break;
                 }
                 if (actions.getAction(action).equals(actions.getExit())) {
+                    storeInfo();
                     return;
                 }
             }
         }
     }
 
-    @PreDestroy
     private void storeInfo() {
         System.out.println("Информация о корзинах:");
         System.out.println("Количество корзин: " + carts.size());
